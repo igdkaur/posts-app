@@ -4,10 +4,9 @@ import classes from "./PostsList.module.css";
 import { useState } from "react";
 import Modal from "./Modal";
 
-function PostsList() {
+function PostsList({isPosting}) {
   const [enteredBody, setEnteredBody] = useState();
   const [enteredAuthor, setEnteredAuthor] = useState();
-  const [modalisVisible, setModalIsVisible] = useState(true);
 
   function handleBodyChange(event) {
     setEnteredBody(event.target.value);
@@ -15,13 +14,11 @@ function PostsList() {
   function handleAuthorChange(event) {
     setEnteredAuthor(event.target.value);
   }
-  function handleClose() {
-    setModalIsVisible(false);
-  }
+
 
   let modalContent;
 
-  if (modalisVisible) {
+  if (isPosting) {
     modalContent = (
       <Modal onClose={handleClose}>
         <NewPost

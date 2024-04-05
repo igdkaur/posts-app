@@ -1,17 +1,23 @@
 import NewPost from "./NewPost";
 import Post from "./Post";
-import classes from "./PostsList.module.css"
+import classes from "./PostsList.module.css";
+import { useState } from 'react';
 
 
 function PostsList() {
+  const [enteredBody, setEnteredBody] = useState();
+
+  function handleBodyChange(event) {
+    setEnteredBody(event.target.value);
+  }
+
   return (
     <>
-    <NewPost />
-    <ul className={classes.posts}>
-
-      <Post author="Kim" body="The book needs revision" />
-      <Post author="Leo" body="The index needs correction" />
-    </ul>
+      <NewPost onBodyChange={handleBodyChange} />
+      <ul className={classes.posts}>
+        <Post author="Kim" body={enteredBody} />
+        <Post author="Leo" body="The index needs correction" />
+      </ul>
     </>
   );
 }

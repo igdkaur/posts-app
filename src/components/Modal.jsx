@@ -1,3 +1,5 @@
+import classes from "./Modal.module.css"
+
 function Modal() {
   return (
     <>
@@ -6,3 +8,4 @@ function Modal() {
     </>
   )
 }
+export default Modal

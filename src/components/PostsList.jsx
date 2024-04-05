@@ -2,6 +2,7 @@ import NewPost from "./NewPost";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
 import { useState } from 'react';
+import Modal from "./Modal"
 
 
 function PostsList() {
@@ -17,7 +18,10 @@ function PostsList() {
 
   return (
     <>
+    <Modal>
+
       <NewPost onBodyChange={handleBodyChange} onAuthorChange={handleAuthorChange}/>
+    </Modal>
       <ul className={classes.posts}>
         <Post author={enteredAuthor} body={enteredBody} />
         <Post author="Leo" body="The index needs correction" />

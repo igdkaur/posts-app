@@ -17,7 +17,7 @@ function handleOpenModal() {
     <>
       <MainHeader onCreatePost={handleOpenModal}/>
       <main>
-        <PostsList isPosting={modalisVisible}/>
+        <PostsList isPosting={modalisVisible} onStopPosting={handleHideModal} />
       </main>
     </>
   );

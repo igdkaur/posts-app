@@ -9,9 +9,13 @@ function handleHideModal() {
   setModalIsVisible(false);
 }
 
+function handleOpenModal() {
+  setModalIsVisible(true);
+}
+
   return (
     <>
-      <MainHeader />
+      <MainHeader onCreatePost={handleOpenModal}/>
       <main>
         <PostsList isPosting={modalisVisible}/>
       </main>

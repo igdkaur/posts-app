@@ -1,9 +1,8 @@
 import NewPost from "./NewPost";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
-import { useState } from 'react';
-import Modal from "./Modal"
-
+import { useState } from "react";
+import Modal from "./Modal";
 
 function PostsList() {
   const [enteredBody, setEnteredBody] = useState();
@@ -20,15 +19,22 @@ function PostsList() {
     setModalIsVisible(false);
   }
 
+  let modalContent;
+
+  if (modalisVisible) {
+    modalContent = (
+      <Modal onClose={handleClose}>
+        <NewPost
+          onBodyChange={handleBodyChange}
+          onAuthorChange={handleAuthorChange}
+        />
+      </Modal>
+    );
+  }
+
   return (
     <>
-    {
-      modalisVisible ? <Modal onClose={handleClose}>
-
-      <NewPost onBodyChange={handleBodyChange} onAuthorChange={handleAuthorChange}/>
-    </Modal> : false 
-    }
-    
+      {modalContent}
       <ul className={classes.posts}>
         <Post author={enteredAuthor} body={enteredBody} />
         <Post author="Leo" body="The index needs correction" />

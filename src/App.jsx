@@ -1,9 +1,11 @@
 import MainHeader from "./components/MainHeader";
 import PostsList from "./components/PostsList";
+import { useState } from "react";
+
 
 function App() {
 
-const [modalisVisible, setModalIsVisible] = useState(true);
+const [modalisVisible, setModalIsVisible] = useState(false);
 
 function handleHideModal() {
   setModalIsVisible(false);

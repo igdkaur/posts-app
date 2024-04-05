@@ -4,7 +4,7 @@ import classes from "./PostsList.module.css";
 import { useState } from "react";
 import Modal from "./Modal";
 
-function PostsList({isPosting}) {
+function PostsList({isPosting, onStopPosting}) {
   const [enteredBody, setEnteredBody] = useState();
   const [enteredAuthor, setEnteredAuthor] = useState();
 
@@ -20,7 +20,7 @@ function PostsList({isPosting}) {
 
   if (isPosting) {
     modalContent = (
-      <Modal onClose={handleClose}>
+      <Modal onClose={onStopPosting} >
         <NewPost
           onBodyChange={handleBodyChange}
           onAuthorChange={handleAuthorChange}

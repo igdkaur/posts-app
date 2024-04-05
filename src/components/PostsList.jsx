@@ -8,6 +8,7 @@ import Modal from "./Modal"
 function PostsList() {
   const [enteredBody, setEnteredBody] = useState();
   const [enteredAuthor, setEnteredAuthor] = useState();
+  const [modalisVisible, setModalIsVisible] = useState(true);
 
   function handleBodyChange(event) {
     setEnteredBody(event.target.value);
@@ -15,13 +16,19 @@ function PostsList() {
   function handleAuthorChange(event) {
     setEnteredAuthor(event.target.value);
   }
+  function handleClose() {
+    setModalIsVisible(false);
+  }
 
   return (
     <>
-    <Modal>
+    {
+      modalisVisible ? <Modal onClose={handleClose}>
 
       <NewPost onBodyChange={handleBodyChange} onAuthorChange={handleAuthorChange}/>
-    </Modal>
+    </Modal> : false 
+    }
+    
       <ul className={classes.posts}>
         <Post author={enteredAuthor} body={enteredBody} />
         <Post author="Leo" body="The index needs correction" />

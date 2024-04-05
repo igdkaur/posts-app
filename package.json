@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage":"https://igdkaur.github.io/posts-app",
+  "homepage":"https://igdkaur.github.io/posts-app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

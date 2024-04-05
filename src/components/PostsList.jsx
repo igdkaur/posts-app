@@ -7,6 +7,14 @@ import { useState } from "react";
 function PostsList({ isPosting, onStopPosting }) {
   const [posts, setPosts] = useState([]);
 
+
+ 
+  async function fetchPosts() {
+    const response = await fetch('http://localhost:8080/posts');
+    const data = await response.json();
+    setPosts(data.posts)
+  }
+
   function handleAddPost(postData) {
     fetch('http://localhost:8080/posts',{
       method: 'POST',

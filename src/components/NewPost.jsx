@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classes from './NewPost.module.css';
 
-function NewPost() {
+function NewPost(props) {
   const [author, setAuthor] = useState();
 
    function handleChange(event) {
@@ -13,7 +13,7 @@ function NewPost() {
     <form className={classes.form}>
       <p>
         <label htmlFor="body">Text</label>
-        <textarea id="body" required rows={3} onChange={handleChange}/>
+        <textarea id="body" required rows={3} onChange={props.onBodyChange}/>
       </p>
       <p>{author}</p>
       <p>

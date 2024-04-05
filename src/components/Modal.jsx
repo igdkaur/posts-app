@@ -1,8 +1,8 @@
 function Modal() {
   return (
     <>
-      <div />
-      <dialog></dialog>
+      <div className={classes.backdrop}/>
+      <dialog open className={classes.modal}></dialog>
     </>
   )
 }

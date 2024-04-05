@@ -3,7 +3,7 @@ import { useState } from "react";
 import Modal from "../components/Modal";
 import {Link} from "react-router-dom"
 
-function NewPost({  onAddPost }) {
+function NewPost() {
   const [enteredBody, setEnteredBody] = useState();
   const [enteredAuthor, setEnteredAuthor] = useState();
 
@@ -21,7 +21,12 @@ function NewPost({  onAddPost }) {
       author: enteredAuthor,
     };
     console.log(postData);
-    onAddPost(postData);
+
+      // function handleAddPost(postData) {
+  //   
+  //   setPosts((existingPosts) => [postData, ...existingPosts]);
+  // }
+
     onCancel();
   }
 
@@ -51,3 +56,15 @@ function NewPost({  onAddPost }) {
 }
 
 export default NewPost;
+
+
+export function action() {
+  fetch('http://localhost:8080/posts',{
+        method: 'POST',
+        body:JSON.stringify(postData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+}
